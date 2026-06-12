@@ -1,11 +1,13 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const fs = require("fs");
 const path = require("path");
 
-const sheets = require("./models/sheetschemas");
+const { Sheet, Problem, Counter } = require("./models/sheetschemas");
 
 //  Connect to MongoDB 
-mongoose.connect("mongodb://127.0.0.1:27017/project-webdev")
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/project-webdev";
+mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log("✅ MongoDB Connected");
         return seedData();
@@ -25,13 +27,28 @@ async function seedData() {
 
         console.log(`📦 Found ${problems.length} problems to inject...`);
 
-        // Optional: Clear existing data first (comment out if you don't want this)
-        await sheets.deleteMany({});
-        console.log("🗑️  Cleared existing sheet data");
+        // Clear existing data first
+        await Sheet.deleteMany({});
+        await Problem.deleteMany({});
+        await Counter.deleteMany({});
+        console.log("🗑️  Cleared existing sheet, problem, and counter data");
 
-        // Bulk insert all problems at once
-        const inserted = await sheets.insertMany(problems);
+        // 1. Create a default sheet
+        const defaultSheet = new Sheet({
+            sheetName: "Strivers A2Z DSA Course/Sheet",
+            totalQuestions: problems.length
+        });
+        await defaultSheet.save();
+        console.log(`📝 Created default sheet: "${defaultSheet.sheetName}"`);
 
+        // 2. Map problems to include the sheetId
+        const problemsWithSheetId = problems.map((p) => ({
+            ...p,
+            sheetId: defaultSheet._id
+        }));
+
+        // 3. Create all problems (runs pre-save hook to generate problemId)
+        const inserted = await Problem.create(problemsWithSheetId);
         console.log(`✅ Successfully injected ${inserted.length} problems into MongoDB!`);
 
     } catch (err) {

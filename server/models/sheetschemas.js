@@ -60,23 +60,18 @@ const problemSchema = new mongoose.Schema({
 // ─────────────────────────────────────────────
 //  PRE-SAVE HOOK — auto-assign problemId once
 // ─────────────────────────────────────────────
-problemSchema.pre("save", async function (next) {
+problemSchema.pre("save", async function () {
   // Only generate an ID for brand-new documents
-  if (!this.isNew) return next();
+  if (!this.isNew) return;
 
-  try {
-    const counter = await Counter.findByIdAndUpdate(
-      "problemId",                   // counter document id
-      { $inc: { seq: 1 } },         // increment by 1
-      { new: true, upsert: true }   // create if not exists
-    );
+  const counter = await Counter.findByIdAndUpdate(
+    "problemId",                   // counter document id
+    { $inc: { seq: 1 } },         // increment by 1
+    { returnDocument: 'after', upsert: true }   // create if not exists
+  );
 
-    // Format: P0001, P0042, P1000 …
-    this.problemId = "P" + String(counter.seq).padStart(4, "0");
-    next();
-  } catch (err) {
-    next(err);
-  }
+  // Format: P0001, P0042, P1000 …
+  this.problemId = "P" + String(counter.seq).padStart(4, "0");
 });
 
 // ─────────────────────────────────────────────
