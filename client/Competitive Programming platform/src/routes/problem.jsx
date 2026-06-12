@@ -23,6 +23,7 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 
 import Layout from "../ui/Layout";
 import { styles, getDifficultyChipStyle } from "./problem.styles";
+import { API_BASE_URL } from "../config";
 
 const defaultTemplates = {
   javascript: `// Write your code here\n\nfunction solve() {\n    console.log("Hello, World!");\n}\nsolve();`,
@@ -100,7 +101,7 @@ export default function ProblemEditor() {
     async function request() {
       try {
         const res = await axios.get(
-          `http://localhost:3000/editor/${problemId}`
+          `${API_BASE_URL}/editor/${problemId}`
         );
         console.log(res.data);
         setData(res.data.data);

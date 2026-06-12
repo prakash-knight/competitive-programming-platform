@@ -15,8 +15,9 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import CircularProgress from "@mui/material/CircularProgress";
 import Layout from "../ui/Layout";
+import { API_BASE_URL } from "../config";
 
-const BASE = "http://localhost:3000";
+const BASE = API_BASE_URL;
 
 export default function SheetsPage() {
   const navigate = useNavigate();

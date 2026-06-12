@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Layout from "../ui/Layout.jsx";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 import {
   FiAward,
   FiMail,
@@ -143,7 +144,7 @@ export default function Profile() {
     async function fetchUser() {
       try {
         setError(null);
-        const res = await axios.get(`http://localhost:3000/user/${userid}`);
+        const res = await axios.get(`${API_BASE_URL}/user/${userid}`);
         if (res.data && res.data.success) {
           setUser(res.data);
         } else {

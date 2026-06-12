@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import StatCards from "./StatCards";
 import ContestSection from "./ContestSection";
 import "./styles.css"; // Ensure styles are applied
+import { API_BASE_URL } from "../config";
 
 export default function HomePage() {
   const [contests, setContests] = useState([]);
@@ -18,13 +19,13 @@ export default function HomePage() {
       try {
         setLoading(true);
         // Fetch contests
-        const contestRes = await axios.get("http://localhost:3000/api/contests");
+        const contestRes = await axios.get(`${API_BASE_URL}/api/contests`);
         setContests(contestRes.data);
 
         // Fetch user progress for Solved Problems count if logged in
         const userid = localStorage.getItem("userid");
         if (userid) {
-           const userRes = await axios.get(`http://localhost:3000/user/${userid}`);
+           const userRes = await axios.get(`${API_BASE_URL}/user/${userid}`);
            if (userRes.data?.progress) {
              const total = userRes.data.progress.reduce((acc, curr) => acc + (curr.questionsDone || 0), 0);
              setSolvedCount(total);

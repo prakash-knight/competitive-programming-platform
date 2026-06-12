@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -111,7 +112,7 @@ export default function Home() {
   useEffect(() => {
     async function contest() {
       try {
-        const response = await axios.get("http://localhost:3000/api/contests");
+        const response = await axios.get(`${API_BASE_URL}/api/contests`);
         setRes(response.data);
       } catch (err) {
         console.log(err);

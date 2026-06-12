@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Layout from "../ui/Layout";
 import { FiCode } from "react-icons/fi";
+import { API_BASE_URL } from "../config";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export default function Login() {
     event.preventDefault();
     try {
       let res = await axios.post(
-        "http://localhost:3000/auth/login",
+        `${API_BASE_URL}/auth/login`,
         ep
       );
 
