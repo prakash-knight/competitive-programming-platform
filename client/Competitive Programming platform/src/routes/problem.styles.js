@@ -185,22 +185,20 @@ export const styles = {
     gap: 2
   },
   runButton: {
-    background: "linear-gradient(135deg, #00E5FF 0%, #00B0FF 100%)",
-    color: "#0B0F19",
+    backgroundColor: "#4B5563",
+    color: "#FFFFFF",
     fontWeight: "bold",
     textTransform: "none",
     px: 4,
     py: 1,
     borderRadius: 2,
-    boxShadow: "0 4px 15px rgba(0, 229, 255, 0.3)",
     transition: "all 0.2s ease-in-out",
     '&:hover': {
-      background: "linear-gradient(135deg, #00F5FF 0%, #00C0FF 100%)",
-      boxShadow: "0 6px 20px rgba(0, 229, 255, 0.5)",
+      backgroundColor: "#374151",
       transform: "translateY(-1px)"
     },
     '&:disabled': {
-      background: "rgba(255, 255, 255, 0.1)",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
       color: "rgba(255, 255, 255, 0.3)",
     }
   },

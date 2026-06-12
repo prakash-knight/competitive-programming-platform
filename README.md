@@ -4,7 +4,8 @@
 
 ### Full-Stack Developer Platform for Solving DSA Sheets & Tracking Competitive Contests
 
-[![Built for Developers](https://img.shields.io/badge/Platform-DSA%20%26%20CP-blue?style=for-the-badge)](https://github.com)
+[![Frontend Deployed](https://img.shields.io/badge/Frontend-Vercel-black?style=for-the-badge&logo=vercel)](https://competitive-programming-platform-black.vercel.app/)
+[![Backend Deployed](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render)](https://competitive-programming-platform.onrender.com)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js)](https://nodejs.org)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com)
@@ -13,6 +14,9 @@
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/terminal.svg" width="120" alt="Code Tracker Logo"/>
 
 *Solve curated DSA sheets in an interactive code editor, track your learning progress, and stay updated with live contests from top platforms.*
+
+**🌐 Live Demo (Frontend):** [competitive-programming-platform-black.vercel.app](https://competitive-programming-platform-black.vercel.app/)  
+**⚙️ Live API (Backend):** [competitive-programming-platform.onrender.com](https://competitive-programming-platform.onrender.com)  
 
 [🚀 Explore Project](#-getting-started) · [📖 Architecture](#-architecture) · [🛠️ Tech Stack](#%EF%B8%8F-tech-stack) · [👥 Contributor](#-contributor)
 
