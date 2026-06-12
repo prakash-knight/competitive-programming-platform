@@ -71,12 +71,14 @@ export default function ProblemEditor() {
   const [data, setData] = useState(null);
   const { problemId } = useParams();
 
-  // Override #root width dynamically to cover space fully in landscape
+  // Override #root width and .main-content padding dynamically to cover space fully in landscape
   useEffect(() => {
     const root = document.getElementById("root");
+    const mainContent = document.querySelector(".main-content");
     let originalWidth = "";
     let originalMaxWidth = "";
     let originalBorderInline = "";
+    let originalPadding = "";
 
     if (root) {
       originalWidth = root.style.width;
@@ -88,11 +90,19 @@ export default function ProblemEditor() {
       root.style.borderInline = "none";
     }
 
+    if (mainContent) {
+      originalPadding = mainContent.style.padding;
+      mainContent.style.padding = "12px 16px";
+    }
+
     return () => {
       if (root) {
         root.style.width = originalWidth;
         root.style.maxWidth = originalMaxWidth;
         root.style.borderInline = originalBorderInline;
+      }
+      if (mainContent) {
+        mainContent.style.padding = originalPadding;
       }
     };
   }, []);
@@ -165,10 +175,10 @@ export default function ProblemEditor() {
     <Box sx={styles.container}>
       
       <Box sx={styles.innerContainer}>
-        <Grid container sx={styles.gridContainer}>
+        <Box sx={styles.gridContainer}>
           
           {/* Left Column: Problem Details */}
-          <Grid item xs={12} md={6} sx={styles.gridItemLeft}>
+          <Box sx={styles.gridItemLeft}>
             <Card sx={styles.leftCard}>
               <CardContent>
                 {/* Title */}
@@ -222,10 +232,10 @@ export default function ProblemEditor() {
                 )}
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
 
           {/* Right Column: Code Editor & Console */}
-          <Grid item xs={12} md={6} sx={styles.gridItemRight}>
+          <Box sx={styles.gridItemRight}>
             <Card sx={styles.rightCard}>
               {/* Header inside Editor Card */}
               <Box sx={styles.editorHeader}>
@@ -388,9 +398,9 @@ export default function ProblemEditor() {
               </Box>
 
             </Card>
-          </Grid>
+          </Box>
           
-        </Grid>
+        </Box>
       </Box>
     </Box>
     </Layout>

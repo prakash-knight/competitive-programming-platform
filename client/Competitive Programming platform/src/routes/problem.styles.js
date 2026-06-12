@@ -1,7 +1,7 @@
 export const styles = {
   container: {
-    minHeight: "100vh",
-    height: "100vh",
+    minHeight: "calc(100vh - 76px)",
+    height: "calc(100vh - 76px)",
     bgcolor: "#0B0F19",
     color: "#F3F4F6",
     overflow: "hidden",
@@ -19,23 +19,22 @@ export const styles = {
   },
   gridContainer: {
     height: "100%",
-    m: 0,
-    width: "100%"
+    width: "100%",
+    display: "flex",
+    flexDirection: { xs: "column", md: "row" },
+    gap: 3
   },
   gridItemLeft: {
     height: "100%",
+    width: { xs: "100%", md: "50%" },
     display: "flex",
-    flexDirection: "column",
-    p: "0 !important",
-    pr: { md: "12px !important" },
-    pb: { xs: "12px !important", md: "0 !important" }
+    flexDirection: "column"
   },
   gridItemRight: {
     height: "100%",
+    width: { xs: "100%", md: "50%" },
     display: "flex",
-    flexDirection: "column",
-    p: "0 !important",
-    pl: { md: "12px !important" }
+    flexDirection: "column"
   },
   loaderContainer: {
     display: "flex",
