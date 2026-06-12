@@ -1,0 +1,39 @@
+<% layout("layouts/boilerplate") %>
+<body>
+
+    <div class="profile">
+
+        <h1>
+            Welcome, <%= user.userid %> 👋
+        </h1>
+        <hr>
+
+        <h3>User Information</h3>
+
+        <p>
+            <strong>User ID:</strong>
+            <%= user.userid %>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <%= user.email %>
+        </p>
+
+        <br>
+
+        <a href="/">
+            <button>
+                Dashboard
+            </button>
+        </a>
+
+        <a href="/auth">
+            <button>
+                Logout
+            </button>
+        </a>
+
+    </div>
+
+</body>

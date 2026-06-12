@@ -1,0 +1,46 @@
+<% layout("layouts/boilerplate") %>
+
+<body>
+
+    <form method="POST" action="/auth/signup">
+
+        <div class="signup">
+
+            <h2>Create Account</h2>
+
+            <input
+            type="text"
+            name="userid"
+            placeholder="Set username"
+            required
+            >
+
+            <br><br>
+
+            <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+            >
+
+            <br><br>
+
+            <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            required
+            >
+
+            <br><br>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </div>
+
+    </form>
+
+</body>
