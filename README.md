@@ -20,6 +20,14 @@
 
 ---
 
+## 📖 Description
+
+**Code Tracker & DSA Sheet Platform** is a unified learning and preparation workspace built for developers aiming to master Data Structures and Algorithms while keeping their competitive programming game sharp.
+
+By bringing together curated DSA sheets, an in-browser interactive code editor (powered by Monaco Editor), and a live tournament tracker, the platform offers a streamlined, distractions-free practice experience. Users can log in, select specific programming topics, write and test code locally, track their progress with rich analytics, and monitor upcoming contests from Codeforces, LeetCode, AtCoder, and CodeChef all in one place.
+
+---
+
 ## 🌟 Key Features
 
 | Feature | Description |
