@@ -6,7 +6,7 @@ const path = require("path");
 const { Sheet, Problem, Counter } = require("./models/sheetschemas");
 
 //  Connect to MongoDB 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/project-webdev";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://2024ucp1800_db_user:Prakashkumar@cp-platform.eun8xhi.mongodb.net/project-webdev?retryWrites=true&w=majority&appName=CP-platform";
 mongoose.connect(MONGODB_URI)
     .then(() => {
         console.log("✅ MongoDB Connected");
