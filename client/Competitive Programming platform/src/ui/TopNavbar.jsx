@@ -4,9 +4,7 @@ import {
   FiSearch,
   FiMenu,
   FiCode,
-  FiAward,
   FiFileText,
-  FiGrid,
   FiUser,
   FiLogOut
 } from "react-icons/fi";
@@ -29,9 +27,7 @@ export default function TopNavbar({ onToggleSidebar }) {
   }, []);
 
   const links = [
-    { name: "Contests", path: "/", icon: <FiAward /> },
     { name: "Sheets", path: "/sheets", icon: <FiFileText /> },
-    { name: "Problems", path: "/sheets", icon: <FiGrid /> },
     { name: "Profile", path: "/profile", icon: <FiUser /> },
   ];
 

@@ -3,18 +3,12 @@ import {
   FiHome,
   FiCalendar,
   FiFileText,
-  FiBookmark,
-  FiTrendingUp,
-  FiSettings,
 } from "react-icons/fi";
 
 const sidebarItems = [
   { label: "Dashboard", path: "/", icon: <FiHome /> },
   { label: "Upcoming Contests", path: "/", icon: <FiCalendar /> },
   { label: "CP Sheets", path: "/sheets", icon: <FiFileText /> },
-  { label: "Bookmarks", path: "#", icon: <FiBookmark /> },
-  { label: "Rating Tracker", path: "#", icon: <FiTrendingUp /> },
-  { label: "Settings", path: "#", icon: <FiSettings /> },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
