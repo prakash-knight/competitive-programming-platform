@@ -39,7 +39,7 @@ By bringing together curated DSA sheets, an in-browser interactive code editor (
 | 💻 **Interactive Code Editor** | Write and test code right inside the application with an integrated Monaco Editor (VS Code style). |
 | 📊 **DSA Sheets Tracker** | Progress dashboards that display percentages, progress bars, and track individual problem completions. |
 | 🔔 **Live Contest Tracker** | Fetches upcoming coding contests automatically from **Codeforces**, **LeetCode**, **AtCoder**, and **CodeChef**. |
-| 🔐 **Hybrid Auth Flow** | Dual login/signup systems supported on both the frontend (React routes) and server-side (EJS rendering views). |
+| 🔐 **Auth Flow** | Full login/signup system with React frontend forms and Express REST API backend. |
 | 📈 **Developer Analytics** | Visual stats cards and interactive progress circles showing exact sheet completion stats. |
 | 🗄️ **Automatic Data Seeding** | Pre-bundled DSA repository seed script dynamically populates MongoDB tables with standard DSA problem sets. |
 
@@ -75,19 +75,18 @@ flowchart TD
 PROJECT-WEBDEV/
 ├── 📁 client/
 │   └── 📁 Competitive Programming platform/  # React Frontend (Vite)
-│       ├── 📁 public/                         # Static icons & layouts
+│       ├── 📁 public/                         # Favicon & static assets
 │       ├── 📁 src/
-│       │   ├── 📁 components/                 # Reusable React components (Navbar, Button, Progress)
-│       │   ├── 📁 routes/                     # Page routes (Home, Login, Signup, Problem Editor, Profile, Sheets)
-│       │   ├── 📁 ui/                         # Layouts, Sidebar, TopNavbar, and Contest trackers
+│       │   ├── 📁 routes/                     # Page routes (Login, Signup, Problem Editor, Profile, Sheets)
+│       │   ├── 📁 ui/                         # Layout, Sidebar, TopNavbar, Dashboard & Contest trackers
 │       │   ├── 📄 App.jsx                     # Route paths & router entry
+│       │   ├── 📄 config.js                   # API base URL configuration
 │       │   └── 📄 main.jsx                    # React app DOM render
 │       ├── 📄 vite.config.js                  # Frontend Vite bundler configuration
 │       └── 📄 package.json                    # React app dependencies
 │
-├── 📁 server/                                 # Node.js + Express Backend
-│   ├── 📁 models/                             # Mongoose Schemas (User, Sheet, Counter, UserInfo)
-│   ├── 📁 views/                              # EJS pages for login, signup, and server-rendered profiles
+├── 📁 server/                                 # Node.js + Express REST API
+│   ├── 📁 models/                             # Mongoose Schemas (User, Sheet, Problem, Counter, UserInfo)
 │   ├── 📄 index.js                            # Express Server & contest fetching API routing
 │   ├── 📄 seed.js                             # Automatic db seeder for the DSA sheets
 │   └── 📄 package.json                        # Backend libraries & scripts
@@ -105,12 +104,12 @@ PROJECT-WEBDEV/
 - **Vite** - Lightning-fast build framework
 - **Material-UI (MUI)** - Elegant and clean component layouts
 - **Monaco Editor** - Interactive custom code typing console
-- **Framer Motion** - Smooth transitions and animations
+- **React Router v7** - Client-side routing & navigation
 
 ### Backend
-- **Node.js & Express** - High-speed REST API endpoints & proxy servers
-- **EJS (Embedded JavaScript)** - Optional server-rendered portal views
+- **Node.js & Express** - High-speed REST API endpoints
 - **Mongoose** - Document ODM mapping schemas to MongoDB
+- **Judge0 CE** - Remote code execution engine (8 languages)
 
 ### Integrations & Scraping
 - **Codeforces API** - Native HTTP fetching
@@ -151,7 +150,7 @@ brew services start mongodb-community
    ```bash
    node index.js
    ```
-   *The Express server runs by default on `http://localhost:3000`.*
+   *The Express server starts on port 3000. Live API: [competitive-programming-platform.onrender.com](https://competitive-programming-platform.onrender.com)*
 
 ### 3. Frontend Setup
 1. Open a new terminal session and head to the client root:
@@ -166,7 +165,7 @@ brew services start mongodb-community
    ```bash
    npm run dev
    ```
-   *The React interface runs by default on `http://localhost:5173`.*
+   *Live Frontend: [competitive-programming-platform-black.vercel.app](https://competitive-programming-platform-black.vercel.app/)*
 
 ---
 
